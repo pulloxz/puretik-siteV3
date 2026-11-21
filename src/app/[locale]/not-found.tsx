@@ -10,7 +10,7 @@ export default function NotFound() {
         href="/ar"
         className="mt-2 rounded-full border border-border px-5 py-2 text-sm hover:bg-surface"
       >
-        بيوريتك · PureTik
+        بيورتك · PureTik
       </Link>
     </main>
   );
