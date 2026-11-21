@@ -115,6 +115,7 @@ export const en: Dictionary = {
     title: "Real products people use today",
     subtitle: "Three systems we built that are live in the Iraqi market.",
     visit: "Visit site",
+    getItOn: "Get the app on",
     items: [
       {
         slug: "drlab",
@@ -136,6 +137,44 @@ export const en: Dictionary = {
         category: "E-commerce platform",
         summary:
           "A platform that gives Iraqi brands their own online store and app: delivery to 18 governorates, cash on delivery, and Meta Pixel integration.",
+      },
+    ],
+  },
+  apps: {
+    eyebrow: "Our apps",
+    title: "Our apps on the stores",
+    items: [
+      {
+        slug: "karadastore",
+        name: "Karada Store",
+        description: "Shop electronics easily, with fast delivery across Iraq.",
+      },
+      {
+        slug: "baitalnono",
+        name: "Bait Al-Nono",
+        description: "Everything a child needs.",
+      },
+      {
+        slug: "platinum",
+        name: "Platinum Store",
+        description: "High-quality products at competitive prices.",
+      },
+      {
+        slug: "drnote",
+        name: "Dr Note",
+        description: "Everything you need in one app to manage your medical practice with ease.",
+      },
+      {
+        slug: "litecashier",
+        name: "Lite Cashier",
+        description:
+          "A simple, fast app for small shops to create invoices and print thermal receipts with ease.",
+      },
+      {
+        slug: "alsafigroup",
+        name: "Al-Safi Group",
+        description:
+          "Earn loyalty points when you buy from authorized dealers, level up, then redeem your points for rewards.",
       },
     ],
   },

@@ -8,6 +8,7 @@ import { Services } from "@/components/Services";
 import { DevSection } from "@/components/DevSection";
 import { Process } from "@/components/Process";
 import { Projects } from "@/components/Projects";
+import { Apps } from "@/components/Apps";
 import { ContactSection } from "@/components/ContactSection";
 
 export default async function Home({ params }: PageProps<"/[locale]">) {
@@ -25,6 +26,7 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
       <Services dict={dict} />
       <Process dict={dict} />
       <Projects dict={dict} />
+      <Apps dict={dict} />
       <ContactSection dict={dict} />
     </main>
   );
