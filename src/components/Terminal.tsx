@@ -67,24 +67,42 @@ export function Terminal({ text }: { text: TerminalText }) {
   const reduce = useReducedMotion();
   const [lines, setLines] = useState<Line[]>([]);
   const [tick, setTick] = useState(0);
+  const [finished, setFinished] = useState(false);
 
-  // Spinner frame clock.
+  // `text` arrives as a fresh object on every parent render, so the animation
+  // is keyed on its content instead of its identity.
+  const textKey = JSON.stringify(text);
+
+  // Spinner frame clock: only runs while the animation is in progress.
   useEffect(() => {
-    if (!inView || reduce) return;
+    if (!inView || reduce || finished) return;
     const id = setInterval(() => setTick((v) => v + 1), 80);
     return () => clearInterval(id);
-  }, [inView, reduce]);
+  }, [inView, reduce, finished]);
 
   useEffect(() => {
     if (!inView) return;
+    const t: TerminalText = JSON.parse(textKey);
     let cancelled = false;
-    const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+    // Waits, then reports whether this run was superseded in the meantime
+    // (React runs effects twice in development, and hot reload re-runs them).
+    const superseded = async (ms: number) => {
+      await new Promise((r) => setTimeout(r, ms));
+      return cancelled;
+    };
 
     (async () => {
+      // Always start from a clean screen so a re-run can never stack on top
+      // of an earlier run's output.
+      setFinished(false);
+      setLines([]);
+
       if (reduce) {
-        setLines(finalLines(text));
+        setLines(finalLines(t));
+        setFinished(true);
         return;
       }
+
       let n = 0;
       const push = (l: Line) => {
         setLines((prev) => [...prev, l]);
@@ -95,50 +113,47 @@ export function Terminal({ text }: { text: TerminalText }) {
           prev.map((l, idx) => (idx === i ? ({ ...l, ...p } as Line) : l)),
         );
 
-      await sleep(350);
+      if (await superseded(350)) return;
       const cmd = push({ k: "cmd", text: "", typing: true });
       for (let c = 1; c <= COMMAND.length; c++) {
-        if (cancelled) return;
         patch(cmd, { text: COMMAND.slice(0, c) });
-        await sleep(32 + Math.random() * 40);
+        if (await superseded(32 + Math.random() * 40)) return;
       }
-      await sleep(450);
+      if (await superseded(450)) return;
       patch(cmd, { typing: false });
 
-      for (let i = 0; i < text.steps.length; i++) {
-        if (cancelled) return;
+      for (let i = 0; i < t.steps.length; i++) {
         const step = push({
           k: "step",
-          label: text.steps[i],
+          label: t.steps[i],
           status: "spin",
           time: TIMES[i],
         });
         if (i === 3) {
           const bar = push({ k: "bar", pct: 0 });
           for (let p = 0; p <= 100; p += 5) {
-            if (cancelled) return;
             patch(bar, { pct: p });
-            await sleep(55);
+            if (await superseded(55)) return;
           }
-        } else {
-          await sleep(650 + i * 150);
+        } else if (await superseded(650 + i * 150)) {
+          return;
         }
-        if (cancelled) return;
         patch(step, { status: "done" });
       }
 
-      await sleep(300);
-      push({ k: "ready", text: text.ready });
-      await sleep(200);
-      push({ k: "url", label: text.live });
-      await sleep(400);
+      if (await superseded(300)) return;
+      push({ k: "ready", text: t.ready });
+      if (await superseded(200)) return;
+      push({ k: "url", label: t.live });
+      if (await superseded(400)) return;
       push({ k: "prompt" });
+      setFinished(true);
     })();
 
     return () => {
       cancelled = true;
     };
-  }, [inView, reduce, text]);
+  }, [inView, reduce, textKey]);
 
   return (
     <div ref={ref} className="relative">
