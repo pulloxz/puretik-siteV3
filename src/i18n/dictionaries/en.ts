@@ -4,7 +4,7 @@ export const en: Dictionary = {
   meta: {
     title: "PureTik | Technology that keeps pace with your ambition",
     description:
-      "PureTik is an Iraqi software company building web and mobile apps, cloud solutions, cybersecurity and data analytics.",
+      "PureTik is an Iraqi software company building web and mobile apps, cybersecurity and data analytics.",
   },
   nav: {
     services: "Services",
@@ -29,7 +29,7 @@ export const en: Dictionary = {
     items: [
       { value: 2023, label: "Year founded" },
       { value: 3, label: "Live digital products" },
-      { value: 6, label: "Service areas" },
+      { value: 5, label: "Service areas" },
       { value: 18, label: "Governorates reached by our commerce platform" },
     ],
   },
@@ -50,12 +50,6 @@ export const en: Dictionary = {
         title: "Mobile app development",
         description:
           "Creating and delivering apps designed for mobile devices, on a single platform or across several.",
-      },
-      {
-        key: "cloud",
-        title: "Cloud solutions",
-        description:
-          "We use cloud computing to deliver scalable services and solutions over the internet.",
       },
       {
         key: "security",
