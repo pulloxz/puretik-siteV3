@@ -20,9 +20,12 @@ export function SectionHeading({
         }`}
       >
         <span
-          className={`h-px w-10 ${light ? "bg-black" : "bg-accent"}`}
+          dir="ltr"
+          className={`font-mono ${light ? "text-black" : "text-accent"}`}
           aria-hidden="true"
-        />
+        >
+          {"//"}
+        </span>
         {eyebrow}
       </p>
       <h2 className="mt-5 text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-6xl">

@@ -5,6 +5,7 @@ import { Hero } from "@/components/Hero";
 import { Marquee } from "@/components/Marquee";
 import { Stats } from "@/components/Stats";
 import { Services } from "@/components/Services";
+import { DevSection } from "@/components/DevSection";
 import { Process } from "@/components/Process";
 import { Projects } from "@/components/Projects";
 import { ContactSection } from "@/components/ContactSection";
@@ -18,6 +19,7 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
     <main>
       <Hero dict={dict} />
       <Marquee dict={dict} />
+      <DevSection dict={dict} />
       <Stats dict={dict} />
       <Services dict={dict} />
       <Process dict={dict} />

@@ -22,7 +22,7 @@ export function Process({ dict }: { dict: Dictionary }) {
             <li key={step.title}>
               <Reveal delay={i * 0.08}>
                 <div className="border-t-2 border-black pt-6">
-                  <span className="block text-7xl font-extrabold leading-none tabular-nums">
+                  <span className="block font-mono text-7xl font-extrabold leading-none tabular-nums">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <h3 className="mt-8 text-xl font-bold">{step.title}</h3>

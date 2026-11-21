@@ -101,7 +101,9 @@ export function Hero({ dict }: { dict: Dictionary }) {
             transition={{ duration: 0.5, delay: d(0) }}
             className="flex items-center gap-3 text-sm font-medium text-muted"
           >
-            <span className="h-px w-10 bg-accent" aria-hidden="true" />
+            <span dir="ltr" className="font-mono text-accent" aria-hidden="true">
+              {"//"}
+            </span>
             {hero.tagline}
           </motion.p>
 

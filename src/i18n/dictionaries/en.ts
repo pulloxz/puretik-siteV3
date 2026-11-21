@@ -77,6 +77,19 @@ export const en: Dictionary = {
       },
     ],
   },
+  terminal: {
+    eyebrow: "How we build",
+    title: "From the first line",
+    steps: [
+      "Understanding your needs",
+      "Designing the interface",
+      "Building and testing",
+      "Launching online",
+    ],
+    tests: "24 tests passed",
+    ready: "Ready in 4.8s",
+    live: "Live now",
+  },
   process: {
     eyebrow: "How we work",
     title: "From idea to launch",

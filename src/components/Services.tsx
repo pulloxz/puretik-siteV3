@@ -17,7 +17,7 @@ export function Services({ dict }: { dict: Dictionary }) {
           <li key={item.key} className="group border-t border-border last:border-b">
             <Reveal delay={i * 0.04}>
               <div className="grid grid-cols-[auto_1fr] items-center gap-x-5 gap-y-2 px-3 py-8 transition-colors duration-300 group-hover:bg-accent md:grid-cols-[5rem_1.1fr_1.4fr] md:gap-x-8 md:px-6">
-                <span className="text-sm font-bold tabular-nums text-accent transition-colors group-hover:text-black">
+                <span className="font-mono text-sm font-bold tabular-nums text-accent transition-colors group-hover:text-black">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <h3 className="text-2xl font-bold transition-colors group-hover:text-black md:text-4xl">

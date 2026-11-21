@@ -42,7 +42,9 @@ export function ContactSection({ dict }: { dict: Dictionary }) {
       <div className="relative mx-auto grid max-w-6xl gap-14 lg:grid-cols-[1fr_1.15fr] lg:gap-16">
         <Reveal>
           <p className="flex items-center gap-3 text-sm font-medium text-muted">
-            <span className="h-px w-10 bg-accent" aria-hidden="true" />
+            <span dir="ltr" className="font-mono text-accent" aria-hidden="true">
+              {"//"}
+            </span>
             {t.eyebrow}
           </p>
           <h2 className="mt-5 bg-gradient-to-r from-accent to-lime bg-clip-text text-6xl font-extrabold leading-[1.1] tracking-tight text-transparent sm:text-7xl rtl:bg-gradient-to-l">

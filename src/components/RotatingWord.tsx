@@ -35,6 +35,11 @@ export function RotatingWord({
           </motion.span>
         </AnimatePresence>
       </span>
+      {/* Blinking code cursor after the rotating word. */}
+      <span
+        aria-hidden="true"
+        className="-ms-1.5 inline-block h-[1.1em] w-[3px] animate-pulse bg-accent"
+      />
     </p>
   );
 }
