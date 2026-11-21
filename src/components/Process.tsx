@@ -8,7 +8,7 @@ export function Process({ dict }: { dict: Dictionary }) {
   return (
     <section
       id="process"
-      className="bg-gradient-to-br from-accent to-lime px-4 py-28 text-black sm:px-6 rtl:bg-gradient-to-bl"
+      className="bg-gradient-to-br from-accent to-lime px-4 py-16 text-black sm:px-6 sm:py-28 rtl:bg-gradient-to-bl"
     >
       <div className="mx-auto max-w-6xl">
         <SectionHeading

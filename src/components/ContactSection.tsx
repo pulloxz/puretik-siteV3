@@ -27,7 +27,7 @@ export function ContactSection({ dict }: { dict: Dictionary }) {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden border-t border-border px-4 py-28 sm:px-6"
+      className="relative overflow-hidden border-t border-border px-4 py-16 sm:px-6 sm:py-28"
     >
       {/* Faint echo of the brand mark, bleeding off the corner. */}
       <Image
@@ -47,7 +47,7 @@ export function ContactSection({ dict }: { dict: Dictionary }) {
             </span>
             {t.eyebrow}
           </p>
-          <h2 className="mt-5 bg-gradient-to-r from-accent to-lime bg-clip-text text-6xl font-extrabold leading-[1.1] tracking-tight text-transparent sm:text-7xl rtl:bg-gradient-to-l">
+          <h2 className="mt-5 bg-gradient-to-r from-accent to-lime bg-clip-text text-5xl font-extrabold leading-[1.1] tracking-tight text-transparent sm:text-7xl rtl:bg-gradient-to-l">
             {t.title}
           </h2>
           <p className="mt-6 max-w-md text-lg leading-relaxed text-muted">

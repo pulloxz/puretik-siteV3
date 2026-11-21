@@ -16,7 +16,6 @@ export const en: Dictionary = {
     menu: "Menu",
   },
   hero: {
-    tagline: "Iraqi software company · Baghdad",
     titleLead: "Technology that keeps pace with",
     titleAccent: "your ambition",
     subtitle: "We design and build websites, apps and systems for your business.",

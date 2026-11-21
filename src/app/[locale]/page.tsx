@@ -14,11 +14,12 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
   const { locale } = await params;
   if (!hasLocale(locale)) notFound();
   const dict = getDictionary(locale);
+  const altDict = getDictionary(locale === "ar" ? "en" : "ar");
 
   return (
     <main>
       <Hero dict={dict} />
-      <Marquee dict={dict} />
+      <Marquee dict={dict} altDict={altDict} />
       <DevSection dict={dict} />
       <Stats dict={dict} />
       <Services dict={dict} />

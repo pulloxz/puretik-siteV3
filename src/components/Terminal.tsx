@@ -28,8 +28,11 @@ export type TerminalText = {
 function Prompt() {
   return (
     <span className="select-none whitespace-pre">
-      <span className="text-accent">dev@puretik</span>{" "}
-      <span className="text-[#7aa2f7]">~/projects</span>{" "}
+      <span className="hidden sm:inline">
+        <span className="text-accent">dev@puretik</span>{" "}
+        <span className="text-[#7aa2f7]">~/projects</span>{" "}
+      </span>
+      <span className="text-[#7aa2f7] sm:hidden">~ </span>
       <span className="text-fg/70">%</span>{" "}
     </span>
   );
@@ -163,7 +166,7 @@ export function Terminal({ text }: { text: TerminalText }) {
         </div>
 
         <div
-          className="min-h-[22rem] px-5 py-4 text-[13px] leading-[1.7] text-[#d8dee0] sm:text-sm"
+          className="min-h-[18rem] px-4 sm:min-h-[22rem] sm:px-5 py-4 text-[13px] leading-[1.7] text-[#d8dee0] sm:text-sm"
           style={{ fontFamily: MONO }}
           aria-label="Terminal animation"
         >
@@ -220,7 +223,7 @@ export function Terminal({ text }: { text: TerminalText }) {
                 );
               case "url":
                 return (
-                  <p key={i} className="flex items-baseline gap-2">
+                  <p key={i} className="flex flex-wrap items-baseline gap-x-2">
                     <span className="text-accent">➜</span>
                     <span className="text-white/70">
                       <span dir="auto">{line.label}</span>:

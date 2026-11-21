@@ -10,13 +10,13 @@ import { SectionHeading } from "./SectionHeading";
 export function Projects({ dict }: { dict: Dictionary }) {
   const { projects } = dict;
   return (
-    <section id="projects" className="mx-auto max-w-6xl px-4 py-28 sm:px-6">
+    <section id="projects" className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-28">
       <SectionHeading
         eyebrow={projects.eyebrow}
         title={projects.title}
         subtitle={projects.subtitle}
       />
-      <div className="space-y-28">
+      <div className="space-y-16 sm:space-y-28">
         {projects.items.map((p, i) => {
           const meta = projectMeta[p.slug as ProjectSlug];
           const flip = i % 2 === 1;

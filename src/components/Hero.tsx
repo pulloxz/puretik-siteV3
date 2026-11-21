@@ -61,7 +61,7 @@ export function Hero({ dict }: { dict: Dictionary }) {
       {/* The PureTik mark, huge, bleeding off the edge. A ghost copy behind it adds depth. */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute top-[8%] bottom-[8%] end-[-6%] w-[70%] opacity-25 sm:opacity-40 lg:end-[6%] lg:w-[22%] lg:opacity-100"
+        className="pointer-events-none absolute bottom-[8%] top-[8%] end-[6%] hidden w-[22%] lg:block"
       >
         <motion.div
           style={{ x: ghostX, y: ghostY }}
@@ -95,23 +95,11 @@ export function Hero({ dict }: { dict: Dictionary }) {
 
       <div className="relative z-10 mx-auto w-full max-w-6xl">
         <div className="max-w-3xl">
-          <motion.p
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: d(0) }}
-            className="flex items-center gap-3 text-sm font-medium text-muted"
-          >
-            <span dir="ltr" className="font-mono text-accent" aria-hidden="true">
-              {"//"}
-            </span>
-            {hero.tagline}
-          </motion.p>
-
           <motion.h1
             initial={{ opacity: 0, y: 32 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: d(0.1), ease: [0.22, 1, 0.36, 1] }}
-            className="mt-6 text-6xl font-extrabold leading-[1.08] tracking-tight sm:text-7xl lg:text-[6.25rem]"
+            className="text-5xl font-extrabold leading-[1.08] tracking-tight min-[420px]:text-6xl sm:text-7xl lg:text-[6.25rem]"
           >
             {hero.titleLead}
             <span className="block bg-gradient-to-r from-accent to-lime bg-clip-text text-transparent rtl:bg-gradient-to-l">

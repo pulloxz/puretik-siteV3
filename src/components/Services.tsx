@@ -6,7 +6,7 @@ import { SectionHeading } from "./SectionHeading";
 export function Services({ dict }: { dict: Dictionary }) {
   const { services } = dict;
   return (
-    <section id="services" className="mx-auto max-w-6xl px-4 py-28 sm:px-6">
+    <section id="services" className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-28">
       <SectionHeading
         eyebrow={services.eyebrow}
         title={services.title}

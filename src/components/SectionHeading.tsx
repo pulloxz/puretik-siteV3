@@ -13,7 +13,7 @@ export function SectionHeading({
 }) {
   const light = tone === "light";
   return (
-    <Reveal className="mb-14 max-w-3xl">
+    <Reveal className="mb-10 max-w-3xl sm:mb-14">
       <p
         className={`flex items-center gap-3 text-sm font-medium ${
           light ? "text-black/70" : "text-muted"
