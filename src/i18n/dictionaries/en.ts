@@ -86,7 +86,6 @@ export const en: Dictionary = {
       "Building and testing",
       "Launching online",
     ],
-    tests: "24 tests passed",
     ready: "Ready in 4.8s",
     live: "Live now",
   },

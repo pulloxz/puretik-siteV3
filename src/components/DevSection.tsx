@@ -22,7 +22,6 @@ export function DevSection({ dict }: { dict: Dictionary }) {
           <Terminal
             text={{
               steps: t.steps,
-              tests: t.tests,
               ready: t.ready,
               live: t.live,
             }}

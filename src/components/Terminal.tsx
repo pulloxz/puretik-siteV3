@@ -6,7 +6,6 @@ import { useInView, useReducedMotion } from "framer-motion";
 type Line =
   | { k: "cmd"; text: string; typing: boolean }
   | { k: "step"; label: string; status: "spin" | "done"; time: string }
-  | { k: "dim"; text: string }
   | { k: "bar"; pct: number }
   | { k: "ready"; text: string }
   | { k: "url"; label: string }
@@ -22,7 +21,6 @@ const MONO =
 
 export type TerminalText = {
   steps: string[];
-  tests: string;
   ready: string;
   live: string;
 };
@@ -48,7 +46,6 @@ function finalLines(t: TerminalText): Line[] {
     { k: "cmd", text: COMMAND, typing: false },
     ...t.steps.flatMap((label, i): Line[] => {
       const step: Line = { k: "step", label, status: "done", time: TIMES[i] };
-      if (i === 2) return [step, { k: "dim", text: t.tests }];
       if (i === 3) return [step, { k: "bar", pct: 100 }];
       return [step];
     }),
@@ -125,7 +122,6 @@ export function Terminal({ text }: { text: TerminalText }) {
         }
         if (cancelled) return;
         patch(step, { status: "done" });
-        if (i === 2) push({ k: "dim", text: text.tests });
       }
 
       await sleep(300);
@@ -197,15 +193,6 @@ export function Terminal({ text }: { text: TerminalText }) {
                     {line.status === "done" && (
                       <span className="text-white/35">{line.time}</span>
                     )}
-                  </p>
-                );
-              case "dim":
-                return (
-                  <p key={i} className="flex gap-2 ps-6 text-white/45">
-                    <span>✓</span>
-                    <span dir="auto" style={{ textAlign: "left" }}>
-                      {line.text}
-                    </span>
                   </p>
                 );
               case "bar": {
