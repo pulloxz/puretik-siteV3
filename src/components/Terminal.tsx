@@ -144,21 +144,21 @@ export function Terminal({ text }: { text: TerminalText }) {
     <div ref={ref} className="relative">
       <span
         aria-hidden="true"
-        className="absolute inset-0 translate-x-3 translate-y-3 rounded-xl bg-gradient-to-br from-accent to-lime rtl:-translate-x-3"
+        className="absolute inset-0 translate-x-2 translate-y-2 rounded-xl bg-gradient-to-br from-accent to-lime sm:translate-x-3 sm:translate-y-3 rtl:-translate-x-2 sm:rtl:-translate-x-3"
       />
       <div
         dir="ltr"
         className="relative overflow-hidden rounded-xl border border-black bg-[#0c0e0f] shadow-2xl shadow-black/60"
       >
         {/* macOS-style title bar */}
-        <div className="relative flex items-center border-b border-black bg-gradient-to-b from-[#34373a] to-[#26282b] px-4 py-2.5">
+        <div className="relative flex items-center border-b border-black bg-gradient-to-b from-[#34373a] to-[#26282b] px-3 py-2 sm:px-4 sm:py-2.5">
           <div className="flex gap-2">
-            <span className="h-3 w-3 rounded-full bg-[#ff5f57] ring-1 ring-black/30" />
-            <span className="h-3 w-3 rounded-full bg-[#febc2e] ring-1 ring-black/30" />
-            <span className="h-3 w-3 rounded-full bg-[#28c840] ring-1 ring-black/30" />
+            <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57] ring-1 ring-black/30 sm:h-3 sm:w-3" />
+            <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e] ring-1 ring-black/30 sm:h-3 sm:w-3" />
+            <span className="h-2.5 w-2.5 rounded-full bg-[#28c840] ring-1 ring-black/30 sm:h-3 sm:w-3" />
           </div>
           <span
-            className="absolute inset-x-0 text-center text-[13px] text-white/60"
+            className="absolute inset-x-0 text-center text-[11px] text-white/60 sm:text-[13px]"
             style={{ fontFamily: MONO }}
           >
             dev — zsh — 80×24
@@ -166,7 +166,7 @@ export function Terminal({ text }: { text: TerminalText }) {
         </div>
 
         <div
-          className="min-h-[18rem] px-4 sm:min-h-[22rem] sm:px-5 py-4 text-[13px] leading-[1.7] text-[#d8dee0] sm:text-sm"
+          className="min-h-[13.5rem] px-3 py-3 text-[11px] leading-[1.6] text-[#d8dee0] sm:min-h-[22rem] sm:px-5 sm:py-4 sm:text-sm sm:leading-[1.7]"
           style={{ fontFamily: MONO }}
           aria-label="Terminal animation"
         >

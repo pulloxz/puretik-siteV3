@@ -16,13 +16,13 @@ export function Projects({ dict }: { dict: Dictionary }) {
         title={projects.title}
         subtitle={projects.subtitle}
       />
-      <div className="space-y-16 sm:space-y-28">
+      <div className="space-y-14 sm:space-y-28">
         {projects.items.map((p, i) => {
           const meta = projectMeta[p.slug as ProjectSlug];
           const flip = i % 2 === 1;
           return (
             <Reveal key={p.slug}>
-              <article className="grid items-center gap-10 md:grid-cols-2 md:gap-16">
+              <article className="grid items-center gap-7 md:grid-cols-2 md:gap-16">
                 <a
                   href={meta.url}
                   target="_blank"
@@ -32,9 +32,9 @@ export function Projects({ dict }: { dict: Dictionary }) {
                 >
                   <span
                     aria-hidden="true"
-                    className="absolute inset-0 translate-x-4 translate-y-4 rounded-3xl bg-gradient-to-br from-accent to-lime transition-transform duration-300 group-hover:translate-x-6 group-hover:translate-y-6 rtl:-translate-x-4 rtl:group-hover:-translate-x-6"
+                    className="absolute inset-0 translate-x-2.5 translate-y-2.5 rounded-2xl sm:translate-x-4 sm:translate-y-4 sm:rounded-3xl bg-gradient-to-br from-accent to-lime transition-transform duration-300 group-hover:translate-x-6 group-hover:translate-y-6 rtl:-translate-x-2.5 sm:rtl:-translate-x-4 rtl:group-hover:-translate-x-6"
                   />
-                  <span className="relative block aspect-[4/3.4] overflow-hidden rounded-3xl border border-border bg-bg-elevated">
+                  <span className="relative block aspect-[16/10] overflow-hidden rounded-2xl sm:aspect-[4/3.4] sm:rounded-3xl border border-border bg-bg-elevated">
                     <Image
                       src={meta.image}
                       alt={p.name}
@@ -53,17 +53,17 @@ export function Projects({ dict }: { dict: Dictionary }) {
                     <span className="h-px w-8 bg-accent" aria-hidden="true" />
                     {p.category}
                   </p>
-                  <h3 className="mt-4 text-5xl font-extrabold tracking-tight sm:text-6xl">
+                  <h3 className="mt-3 text-4xl font-extrabold tracking-tight sm:mt-4 sm:text-6xl">
                     {p.name}
                   </h3>
-                  <p className="mt-5 max-w-md text-lg leading-relaxed text-muted">
+                  <p className="mt-3 max-w-md text-base leading-relaxed text-muted sm:mt-5 sm:text-lg">
                     {p.summary}
                   </p>
                   <a
                     href={meta.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group/link mt-8 inline-flex items-center gap-2 border-b border-fg/30 pb-1 font-medium transition hover:border-accent hover:text-accent"
+                    className="group/link mt-5 inline-flex items-center gap-2 sm:mt-8 border-b border-fg/30 pb-1 font-medium transition hover:border-accent hover:text-accent"
                   >
                     {projects.visit}
                     <ArrowUpRight className="h-4 w-4 transition group-hover/link:-translate-y-0.5 rtl:-scale-x-100" />

@@ -5,8 +5,8 @@ import { Terminal } from "./Terminal";
 export function DevSection({ dict }: { dict: Dictionary }) {
   const t = dict.terminal;
   return (
-    <section id="build" className="mx-auto max-w-6xl px-4 pb-20 pt-16 sm:px-6">
-      <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
+    <section id="build" className="mx-auto max-w-6xl px-4 pb-14 pt-10 sm:px-6 sm:pb-20 sm:pt-16">
+      <div className="grid items-center gap-8 sm:gap-14 lg:grid-cols-2 lg:gap-20">
         <Reveal>
           <p className="flex items-center gap-3 text-sm font-medium text-muted">
             <span dir="ltr" className="font-mono text-accent">
