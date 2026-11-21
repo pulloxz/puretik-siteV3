@@ -18,8 +18,8 @@ export function RotatingWord({
   }, [words.length]);
 
   return (
-    <p className="flex items-center gap-3 text-2xl font-semibold sm:text-3xl">
-      <span className="text-muted">{prefix}</span>
+    <p className="flex flex-wrap items-center gap-x-3 text-xl font-semibold sm:text-3xl">
+      <span className="whitespace-nowrap text-muted">{prefix}</span>
       {/* Fixed-height clip box so the line doesn't jump while words swap. */}
       <span className="relative inline-flex h-[1.5em] items-center overflow-hidden">
         <AnimatePresence mode="wait">

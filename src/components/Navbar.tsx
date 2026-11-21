@@ -45,7 +45,7 @@ export function Navbar({
           <Logo />
         </a>
 
-        <ul className="hidden items-center gap-8 md:flex">
+        <ul className="hidden items-center gap-8 lg:flex">
           {links.map((l) => (
             <li key={l.href}>
               <a
@@ -71,7 +71,7 @@ export function Navbar({
             aria-label={dict.nav.menu}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="rounded-lg border border-border p-2 md:hidden"
+            className="rounded-lg border border-border p-2 lg:hidden"
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -84,7 +84,7 @@ export function Navbar({
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="overflow-hidden md:hidden"
+            className="overflow-hidden lg:hidden"
           >
             <ul className="mx-auto flex max-w-6xl flex-col gap-1 px-4 pb-5 pt-1">
               {links.map((l) => (
