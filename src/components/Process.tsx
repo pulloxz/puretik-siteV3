@@ -26,7 +26,7 @@ export function Process({ dict }: { dict: Dictionary }) {
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <h3 className="mt-8 text-xl font-bold">{step.title}</h3>
-                  <p className="mt-2 leading-relaxed text-black/70">
+                  <p className="mt-2 text-base leading-relaxed text-black/85">
                     {step.description}
                   </p>
                 </div>

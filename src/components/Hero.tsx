@@ -59,8 +59,10 @@ export function Hero({ dict }: { dict: Dictionary }) {
       {/* The PureTik mark, large and tilted, drifting slightly with the mouse. */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute bottom-[8%] top-[8%] end-[7%] hidden w-[18%] lg:block"
+        className="pointer-events-none absolute inset-0 mx-auto hidden max-w-6xl px-4 sm:px-6 lg:block"
       >
+        <div className="relative h-full">
+        <div className="absolute bottom-[8%] top-[8%] end-0 w-[240px] xl:w-[270px]">
         <motion.div
           style={{ x: markX, y: markY }}
           initial={{ opacity: 0, scale: 0.9, rotate: 4 }}
@@ -77,6 +79,8 @@ export function Hero({ dict }: { dict: Dictionary }) {
             className="object-contain object-center"
           />
         </motion.div>
+        </div>
+        </div>
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-6xl px-4 sm:px-6">

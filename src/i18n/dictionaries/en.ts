@@ -10,6 +10,7 @@ export const en: Dictionary = {
     services: "Services",
     process: "How we work",
     projects: "Our work",
+    apps: "Apps",
     contact: "Contact",
     cta: "Start your project",
     langLabel: "عربي",
@@ -111,8 +112,8 @@ export const en: Dictionary = {
   },
   projects: {
     eyebrow: "Our work",
-    title: "Real products people use today",
-    subtitle: "Three systems we built that are live in the Iraqi market.",
+    title: "Systems running today",
+    subtitle: "Three products for different industries, all built by PureTik.",
     visit: "Visit site",
     getItOn: "Get the app on",
     items: [
@@ -122,6 +123,8 @@ export const en: Dictionary = {
         category: "Medical laboratory management",
         summary:
           "A complete lab management system: barcode generation, PDF result printing, patient visit history, and one-click result sending over WhatsApp.",
+        visit: "Visit the site to download",
+        tags: ["Barcode", "PDF results", "WhatsApp", "Visit history"],
       },
       {
         slug: "karadastore",
@@ -129,6 +132,7 @@ export const en: Dictionary = {
         category: "E-commerce store",
         summary:
           "An online store for devices and electronics with categories, brands, offers and discounts, and a smooth shopping and delivery experience.",
+        tags: ["Website", "iOS app", "Android app", "Admin dashboard"],
       },
       {
         slug: "puretik-store",
@@ -136,12 +140,19 @@ export const en: Dictionary = {
         category: "E-commerce platform",
         summary:
           "A platform that gives Iraqi brands their own online store and app: delivery to 18 governorates, cash on delivery, and Meta Pixel integration.",
+        visit: "Visit the site to register",
+        tags: ["18 governorates", "Cash on delivery", "Meta Pixel"],
       },
     ],
   },
   apps: {
     eyebrow: "Our apps",
     title: "Our apps on the stores",
+    groups: [
+      { title: "Stores", slugs: ["karadastore", "baitalnono", "platinum"] },
+      { title: "Business & systems", slugs: ["drnote", "litecashier", "alsafigroup"] },
+      { title: "Services", slugs: ["otie", "otiedriver", "fazaa", "abualwahsh"] },
+    ],
     items: [
       {
         slug: "karadastore",
@@ -205,9 +216,12 @@ export const en: Dictionary = {
     subtitle:
       "Ready to take the next step toward your digital goals? We're here to help. Get in touch and let's start the conversation that could turn your ideas into reality.",
     formTitle: "Get a free consultation",
+    mapTitle: "Our location on the map",
+    openMap: "Open in Google Maps",
     addressLabel: "Address",
     address: "Karada - Al-Sinaa Street - Al-Masar Mall - Office 42",
-    phoneLabel: "Call us any time",
+    phoneLabel: "Call us anytime or message us on WhatsApp",
+    whatsappLabel: "WhatsApp",
     emailLabel: "Send an email",
     requiredNote: "Fields marked * are required",
     form: {
@@ -219,6 +233,8 @@ export const en: Dictionary = {
       message: "Message",
       submit: "Send",
       success: "Thank you! We received your message and will be in touch soon.",
+      sending: "Sending…",
+      failed: "We could not send your message. Please call us or email us directly.",
     },
     errors: {
       required: "This field is required",

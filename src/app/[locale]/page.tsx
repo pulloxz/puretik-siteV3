@@ -10,6 +10,7 @@ import { Process } from "@/components/Process";
 import { Projects } from "@/components/Projects";
 import { Apps } from "@/components/Apps";
 import { ContactSection } from "@/components/ContactSection";
+import { buildStructuredData } from "@/lib/structured-data";
 
 export default async function Home({ params }: PageProps<"/[locale]">) {
   const { locale } = await params;
@@ -19,6 +20,16 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
 
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          // "<" is escaped so the data can never close the script tag early.
+          __html: JSON.stringify(buildStructuredData(locale)).replace(
+            /</g,
+            "\\u003c",
+          ),
+        }}
+      />
       <Hero dict={dict} />
       <Marquee dict={dict} altDict={altDict} />
       <DevSection dict={dict} />
@@ -27,7 +38,7 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
       <Process dict={dict} />
       <Projects dict={dict} />
       <Apps dict={dict} />
-      <ContactSection dict={dict} />
+      <ContactSection dict={dict} lang={locale} />
     </main>
   );
 }

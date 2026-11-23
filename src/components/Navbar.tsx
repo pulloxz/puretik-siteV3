@@ -44,6 +44,7 @@ export function Navbar({
     { href: "#services", label: dict.nav.services },
     { href: "#process", label: dict.nav.process },
     { href: "#projects", label: dict.nav.projects },
+    { href: "#apps", label: dict.nav.apps },
     { href: "#contact", label: dict.nav.contact },
   ];
 

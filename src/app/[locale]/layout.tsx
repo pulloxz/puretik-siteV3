@@ -8,6 +8,8 @@ import { MotionProvider } from "@/components/MotionProvider";
 import { Navbar } from "@/components/Navbar";
 import { Preloader } from "@/components/Preloader";
 import { Footer } from "@/components/Footer";
+import { COMPANY } from "@/lib/company";
+import { SITE_URL } from "@/lib/site";
 
 const arabic = IBM_Plex_Sans_Arabic({
   variable: "--font-arabic",
@@ -19,6 +21,29 @@ const latin = Inter({
   variable: "--font-latin",
   subsets: ["latin"],
 });
+
+const KEYWORDS = {
+  ar: [
+    "بيورتك",
+    "شركة برمجة في العراق",
+    "تطوير مواقع",
+    "تطوير تطبيقات الهاتف",
+    "متاجر إلكترونية",
+    "أنظمة مخصصة",
+    "الأمن السيبراني",
+    "تحليل البيانات",
+  ],
+  en: [
+    "PureTik",
+    "software company Iraq",
+    "web development Iraq",
+    "mobile app development",
+    "e-commerce",
+    "custom software",
+    "cybersecurity",
+    "data analytics",
+  ],
+} as const;
 
 export const dynamicParams = false;
 
@@ -33,10 +58,33 @@ export async function generateMetadata({
   if (!hasLocale(locale)) return {};
   const { meta } = getDictionary(locale);
   return {
+    metadataBase: new URL(SITE_URL),
     title: meta.title,
     description: meta.description,
+    applicationName: COMPANY.name,
+    keywords: [...KEYWORDS[locale]],
     alternates: {
-      languages: { ar: "/ar", en: "/en" },
+      canonical: `/${locale}`,
+      languages: { ar: "/ar", en: "/en", "x-default": "/ar" },
+    },
+    openGraph: {
+      type: "website",
+      siteName: COMPANY.name,
+      title: meta.title,
+      description: meta.description,
+      url: `/${locale}`,
+      locale: locale === "ar" ? "ar_IQ" : "en_US",
+      alternateLocale: locale === "ar" ? ["en_US"] : ["ar_IQ"],
+    },
+    twitter: {
+      card: "summary",
+      title: meta.title,
+      description: meta.description,
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: { index: true, follow: true, "max-snippet": -1 },
     },
   };
 }

@@ -2,12 +2,17 @@ import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/get-dictionary";
 import { COMPANY } from "@/lib/company";
 import { Logo } from "./Logo";
+import { InstagramIcon, LinkedinIcon } from "./SocialIcons";
+
+const SOCIAL_LINK =
+  "flex h-10 w-10 items-center justify-center rounded-full border border-border text-muted transition hover:border-accent hover:text-accent";
 
 export function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const company = [
     { href: `/${locale}#services`, label: dict.nav.services },
     { href: `/${locale}#process`, label: dict.nav.process },
     { href: `/${locale}#projects`, label: dict.nav.projects },
+    { href: `/${locale}#apps`, label: dict.nav.apps },
     { href: `/${locale}#contact`, label: dict.nav.contact },
   ];
 
@@ -31,7 +36,35 @@ export function Footer({ locale, dict }: { locale: Locale; dict: Dictionary }) {
             >
               {COMPANY.phoneDisplay}
             </a>
+            <br />
+            <a
+              href={`tel:${COMPANY.phone2}`}
+              dir="ltr"
+              className="inline-block hover:text-accent"
+            >
+              {COMPANY.phone2Display}
+            </a>
           </p>
+          <div className="mt-5 flex gap-3">
+            <a
+              href={COMPANY.social.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className={SOCIAL_LINK}
+            >
+              <InstagramIcon />
+            </a>
+            <a
+              href={COMPANY.social.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className={SOCIAL_LINK}
+            >
+              <LinkedinIcon />
+            </a>
+          </div>
         </div>
 
         <div>

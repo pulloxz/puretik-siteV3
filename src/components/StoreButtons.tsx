@@ -1,6 +1,6 @@
 // "Get it on App Store / Google Play" buttons. Plain buttons with the store
 // logos; the small line above each store name is translated.
-function AppleLogo() {
+export function AppleLogo() {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -13,7 +13,7 @@ function AppleLogo() {
   );
 }
 
-function PlayLogo() {
+export function PlayLogo() {
   return (
     <svg viewBox="0 0 24 24" className="h-6 w-6 shrink-0" aria-hidden="true">
       <path

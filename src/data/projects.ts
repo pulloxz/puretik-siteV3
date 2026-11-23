@@ -4,6 +4,8 @@
 type ProjectMeta = {
   url: string;
   image: string;
+  /** Screenshot width / height. Defaults to the portrait 800 / 866. */
+  ratio?: string;
   panel: string;
   /** Mobile app store pages, when the product has an app. */
   stores?: { apple: string; google: string };
@@ -12,12 +14,14 @@ type ProjectMeta = {
 export const projectMeta = {
   drlab: {
     url: "https://www.drlab.app/",
-    image: "/projects/drlab.jpg",
+    image: "/projects/drlab-app.jpg",
+    ratio: "1600 / 796",
     panel: "linear-gradient(135deg, #8b5cf6 0%, #4c1d95 100%)",
   },
   karadastore: {
     url: "https://karadastore.iq/",
-    image: "/projects/karadastore.jpg",
+    image: "/projects/karadastore-web.jpg",
+    ratio: "1600 / 796",
     panel: "linear-gradient(135deg, #fbbf24 0%, #ea580c 100%)",
     stores: {
       apple: "https://apps.apple.com/us/app/karada-store/id6741197248",
@@ -27,7 +31,8 @@ export const projectMeta = {
   },
   "puretik-store": {
     url: "https://puretik.store/",
-    image: "/projects/puretik-store.jpg",
+    image: "/projects/puretik-store-web.jpg",
+    ratio: "1600 / 796",
     panel: "linear-gradient(135deg, #38febf 0%, #0f9d6e 100%)",
   },
 } as const satisfies Record<string, ProjectMeta>;
