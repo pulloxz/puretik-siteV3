@@ -22,6 +22,14 @@ const latin = Inter({
   subsets: ["latin"],
 });
 
+// The share image shown when the link is posted on social apps and chats.
+const OG_IMAGE = {
+  url: "/og/og-image.png",
+  width: 1200,
+  height: 630,
+  alt: "PureTik — Creative Solutions",
+};
+
 const KEYWORDS = {
   ar: [
     "بيورتك",
@@ -75,11 +83,13 @@ export async function generateMetadata({
       url: `/${locale}`,
       locale: locale === "ar" ? "ar_IQ" : "en_US",
       alternateLocale: locale === "ar" ? ["en_US"] : ["ar_IQ"],
+      images: [OG_IMAGE],
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title: meta.title,
       description: meta.description,
+      images: [OG_IMAGE.url],
     },
     robots: {
       index: true,
