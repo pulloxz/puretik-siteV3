@@ -60,3 +60,12 @@ describe("dictionaries", () => {
     );
   });
 });
+
+describe("stats", () => {
+  it("uses the same stat keys in both languages, each backed by a value", async () => {
+    const ar = getDictionary("ar").stats.items.map((s) => s.key);
+    const en = getDictionary("en").stats.items.map((s) => s.key);
+    expect(en).toEqual(ar);
+    expect(ar).toEqual(["apps", "platforms", "since"]);
+  });
+});

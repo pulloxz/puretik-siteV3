@@ -40,6 +40,30 @@ export const appMeta = {
     google:
       "https://play.google.com/store/apps/details?id=com.puretik.alsafi&hl=ar",
   },
+  otie: {
+    icon: "/apps/otie.png",
+    apple:
+      "https://apps.apple.com/iq/app/%D8%A7%D9%88%D8%AA%D9%8A/id6809002526",
+    google: "https://play.google.com/store/apps/details?id=net.otie.app&hl=ar",
+  },
+  otiedriver: {
+    icon: "/apps/otiedriver.png",
+    apple: "https://apps.apple.com/iq/app/otie-driver/id6809213210",
+    google:
+      "https://play.google.com/store/apps/details?id=net.otie.driverapp&hl=ar",
+  },
+  fazaa: {
+    icon: "/apps/fazaa.png",
+    apple:
+      "https://apps.apple.com/iq/app/%D9%81%D8%B2%D8%B9%D8%A9-%D9%84%D9%84%D8%B5%D9%8A%D8%A7%D9%86%D8%A9/id6834790032",
+    google:
+      "https://play.google.com/store/apps/details?id=com.puretik.fazaa&hl=ar",
+  },
+  abualwahsh: {
+    icon: "/apps/abualwahsh.png",
+    apple:
+      "https://apps.apple.com/iq/app/%D8%B3%D8%A7%D8%A6%D9%82-%D8%A3%D8%A8%D9%88-%D8%A7%D9%84%D9%88%D8%AD%D8%B4/id6762309075",
+  },
 } as const satisfies Record<
   string,
   { icon: string; apple?: string; google?: string }

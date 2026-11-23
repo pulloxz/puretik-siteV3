@@ -59,7 +59,11 @@ export function Navbar({
             : "border-b border-transparent"
         }`}
       >
-        <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+        <nav
+          className={`mx-auto flex max-w-6xl items-center justify-between px-4 transition-all duration-300 sm:px-6 ${
+            scrolled ? "h-16" : "h-24 pt-6"
+          }`}
+        >
           <a href={`/${locale}`} aria-label="PureTik">
             <Logo />
           </a>

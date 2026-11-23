@@ -13,14 +13,17 @@ function Row({
   words: string[];
   id: string;
   separator: string;
-  itemClass: string;
+  /** Classes for each word; may depend on the word (for example its script). */
+  itemClass: string | ((word: string) => string);
   separatorClass: string;
 }) {
   return (
     <>
       {words.map((w, i) => (
         <span key={`${id}${i}`} className="flex items-center gap-8 px-4">
-          <span className={itemClass}>{w}</span>
+          <span className={typeof itemClass === "function" ? itemClass(w) : itemClass}>
+            {w}
+          </span>
           <span aria-hidden="true" className={separatorClass}>
             {separator}
           </span>
@@ -40,6 +43,17 @@ function Half(props: Omit<Parameters<typeof Row>[0], "id"> & { id: string }) {
     </div>
   );
 }
+
+const ARABIC = /[\u0600-\u06FF]/;
+
+// Back-ribbon text. Latin words are outlined with wide letter-spacing.
+// Arabic must not be: letter-spacing tears its connected letters apart, and an
+// outline or semi-transparent fill shows the joins between them. Arabic uses
+// normal spacing and a solid, opaque color (mint dimmed against the dark band).
+const backWordClass = (word: string) =>
+  ARABIC.test(word)
+    ? "text-lg font-bold text-[#2a8a70] sm:text-xl"
+    : "text-base font-bold uppercase tracking-[0.2em] text-transparent [-webkit-text-stroke:1px_rgba(56,254,191,0.65)] sm:text-lg";
 
 export function Marquee({
   dict,
@@ -68,7 +82,7 @@ export function Marquee({
               id={`b${n}`}
               words={back}
               separator="/"
-              itemClass="text-base font-bold uppercase tracking-[0.2em] sm:text-lg text-transparent [-webkit-text-stroke:1px_rgba(56,254,191,0.65)]"
+              itemClass={backWordClass}
               separatorClass="font-mono text-lg text-accent/60"
             />
           ))}

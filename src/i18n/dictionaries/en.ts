@@ -26,10 +26,9 @@ export const en: Dictionary = {
   },
   stats: {
     items: [
-      { value: 2023, label: "Year founded" },
-      { value: 3, label: "Live digital products" },
-      { value: 5, label: "Service areas" },
-      { value: 18, label: "Governorates reached by our commerce platform" },
+      { key: "apps", label: "Apps on the App Store and Google Play" },
+      { key: "platforms", label: "Digital platforms live in Iraq" },
+      { key: "since", label: "Building digital products since" },
     ],
   },
   services: {
@@ -175,6 +174,28 @@ export const en: Dictionary = {
         name: "Al-Safi Group",
         description:
           "Earn loyalty points when you buy from authorized dealers, level up, then redeem your points for rewards.",
+      },
+      {
+        slug: "otie",
+        name: "Otie",
+        description: "Laundry and ironing, picked up from and delivered to your home.",
+      },
+      {
+        slug: "otiedriver",
+        name: "Otie Driver",
+        description: "The driver app for Otie: pick up and deliver clean, pressed clothes.",
+      },
+      {
+        slug: "fazaa",
+        name: "Fazaa Maintenance",
+        description:
+          "Every maintenance request tracked step by step, connecting site owners, management and technicians in one place.",
+      },
+      {
+        slug: "abualwahsh",
+        name: "Abu Al-Wahsh Driver",
+        description:
+          "For approved delivery drivers: receive orders, navigate to pickup and drop-off, and update the status in one tap.",
       },
     ],
   },

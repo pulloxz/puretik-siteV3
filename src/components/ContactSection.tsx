@@ -27,7 +27,7 @@ export function ContactSection({ dict }: { dict: Dictionary }) {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden border-t border-border px-4 py-16 sm:px-6 sm:py-28"
+      className="relative overflow-hidden border-t border-border py-16 sm:py-28"
     >
       {/* Faint echo of the brand mark, bleeding off the corner. */}
       <Image
@@ -39,7 +39,7 @@ export function ContactSection({ dict }: { dict: Dictionary }) {
         className="pointer-events-none absolute -bottom-24 start-[-4rem] h-[34rem] w-auto -rotate-[7deg] opacity-[0.07]"
       />
 
-      <div className="relative mx-auto grid max-w-6xl gap-14 lg:grid-cols-[1fr_1.15fr] lg:gap-16">
+      <div className="relative mx-auto grid max-w-6xl gap-14 px-4 sm:px-6 lg:grid-cols-[1fr_1.15fr] lg:gap-16">
         <Reveal>
           <p className="flex items-center gap-3 text-sm font-medium text-muted">
             <span dir="ltr" className="font-mono text-accent" aria-hidden="true">

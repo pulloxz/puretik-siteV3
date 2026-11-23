@@ -1,9 +1,9 @@
-import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import type { Dictionary } from "@/i18n/get-dictionary";
 import { getProjectMeta } from "@/data/projects";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
+import { ProjectShowcase } from "./ProjectShowcase";
 import { StoreButtons } from "./StoreButtons";
 
 // Full-width case studies, one per product, alternating sides. Each product
@@ -28,26 +28,14 @@ export function Projects({ dict }: { dict: Dictionary }) {
           return (
             <Reveal key={p.slug}>
               <article className="grid items-center gap-7 md:grid-cols-2 md:gap-16">
-                <a
+                <ProjectShowcase
                   href={meta.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`${p.name} — ${projects.visit}`}
-                  className={`group relative block aspect-[5/4] overflow-hidden rounded-2xl sm:aspect-[4/3.4] sm:rounded-3xl ${
-                    flip ? "md:order-2" : ""
-                  }`}
-                  style={{ background: meta.panel }}
-                >
-                  <span className="absolute inset-x-5 bottom-0 top-6 overflow-hidden rounded-t-xl shadow-2xl shadow-black/40 transition-transform duration-500 group-hover:-translate-y-2 sm:inset-x-10 sm:top-10 sm:rounded-t-2xl">
-                    <Image
-                      src={meta.image}
-                      alt={p.name}
-                      fill
-                      sizes="(min-width: 768px) 560px, 100vw"
-                      className="object-cover object-top"
-                    />
-                  </span>
-                </a>
+                  image={meta.image}
+                  panel={meta.panel}
+                  name={p.name}
+                  visit={projects.visit}
+                  className={flip ? "md:order-2" : ""}
+                />
 
                 <div>
                   <p className="flex items-center gap-3 text-sm font-medium text-accent">

@@ -26,13 +26,11 @@ export function Hero({ dict }: { dict: Dictionary }) {
   const my = useSpring(rawY, { stiffness: 60, damping: 18 });
   const markX = useTransform(mx, [-0.5, 0.5], [-26, 26]);
   const markY = useTransform(my, [-0.5, 0.5], [-26, 26]);
-  const ghostX = useTransform(mx, [-0.5, 0.5], [44, -44]);
-  const ghostY = useTransform(my, [-0.5, 0.5], [44, -44]);
 
   return (
     <section
       id="top"
-      className="relative flex min-h-[84vh] items-center overflow-hidden px-4 pb-24 pt-28 sm:px-6"
+      className="relative flex min-h-[84vh] items-center overflow-hidden pb-24 pt-28"
       onMouseMove={(e) => {
         const r = e.currentTarget.getBoundingClientRect();
         rawX.set((e.clientX - r.left) / r.width - 0.5);
@@ -58,23 +56,11 @@ export function Hero({ dict }: { dict: Dictionary }) {
         density={14000}
       />
 
-      {/* The PureTik mark, huge, bleeding off the edge. A ghost copy behind it adds depth. */}
+      {/* The PureTik mark, large and tilted, drifting slightly with the mouse. */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute bottom-[8%] top-[8%] end-[6%] hidden w-[22%] lg:block"
+        className="pointer-events-none absolute bottom-[8%] top-[8%] end-[7%] hidden w-[18%] lg:block"
       >
-        <motion.div
-          style={{ x: ghostX, y: ghostY }}
-          className="absolute inset-0 -rotate-[7deg] scale-[1.12] opacity-[0.14]"
-        >
-          <Image
-            src="/brand/logo-mark.png"
-            alt=""
-            fill
-            sizes="50vw"
-            className="object-contain object-center"
-          />
-        </motion.div>
         <motion.div
           style={{ x: markX, y: markY }}
           initial={{ opacity: 0, scale: 0.9, rotate: 4 }}
@@ -93,7 +79,7 @@ export function Hero({ dict }: { dict: Dictionary }) {
         </motion.div>
       </div>
 
-      <div className="relative z-10 mx-auto w-full max-w-6xl">
+      <div className="relative z-10 mx-auto w-full max-w-6xl px-4 sm:px-6">
         <div className="max-w-3xl">
           <motion.h1
             initial={{ opacity: 0, y: 32 }}
