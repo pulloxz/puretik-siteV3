@@ -2,8 +2,9 @@ import { COMPANY } from "@/lib/company";
 import { validateContact, type ContactInput } from "@/lib/validate-contact";
 
 // Receives the contact form and emails it to the company through Resend.
-// Needs RESEND_API_KEY (see docs/contact-email-setup.md). Optional:
-// CONTACT_TO (default: the company email) and CONTACT_FROM.
+// Needs RESEND_API_KEY in the environment (.env.local, or the host's
+// settings). Optional: CONTACT_TO (default: the company email) and
+// CONTACT_FROM (a verified sender; without it Resend's test sender is used).
 const MAX = { short: 120, email: 200, phone: 40, message: 1500 };
 
 const clean = (v: unknown, max: number) =>
